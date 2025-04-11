@@ -1,5 +1,6 @@
 # Simple League Ranking Application
 
+
 The application can be used in a Docker container or locally calling the python script.
 This Python script processes the results of a league's matches and displays the team rankings based on a simple point system.
 
@@ -14,6 +15,7 @@ This Python script processes the results of a league's matches and displays the 
 * **Input from file or direct entry:** Can read match results from a specified file or accept them directly from the user.
 
 ## How to Use
+
 
 1.  **Clone the project/repo:** git clone https://github.com/bekkerza/league_ranker.git and cd into it.
 
@@ -87,6 +89,7 @@ The script includes basic error handling for the following scenarios:
 
 Run the unit_tests* from your current working directory:
 `python -m unittest .\unit_test.py`
+
 
 ## Dependencies
 

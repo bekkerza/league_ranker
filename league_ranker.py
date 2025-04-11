@@ -16,6 +16,7 @@ def process_results(results):
         sys.exit(1)
 
     # Process each match pair - was tricky to build pairs on static pattern
+
     for i in range(0, len(matches), 2):
         # Extract teams and their scores
         team1, score1 = matches[i].split()
