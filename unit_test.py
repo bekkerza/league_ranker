@@ -8,6 +8,7 @@ import os
 
 from fleague.league_ranker import process_results, rank_teams, read_input_file
 
+# Some tests seem excessive, but better to expect any eventuality than just the common issues.
 class TestResultProcessing(unittest.TestCase):
 
     def test_process_results_valid_input(self):

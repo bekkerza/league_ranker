@@ -14,7 +14,7 @@ This Python script processes the results of a league's matches and displays the 
 
 ## How to Use
 
-1.  **Save the script:** Save the provided Python code as a `.py` file (e.g., `league_ranker.py`).
+1.  **Clone the project/repo:** git clone https://github.com/bekkerza/league_ranker.git and cd into it.
 
 2.  **Run from the command line:**
 
