@@ -65,4 +65,4 @@ The script includes basic error handling for the following scenarios:
 
 ## Dependencies
 
-This script uses standard Python libraries and has no external dependencies.
+This script uses standard Python libraries and has no external dependencies, hence no requirements.txt file generated.
