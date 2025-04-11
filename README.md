@@ -50,14 +50,20 @@ This Python script processes the results of a league's matches and displays the 
 
 4. **Run in Docker** 
     To build the image locally, run:
+    ```
     `docker build -t match-ranker .` 
-
+    ```
     To execute the ranking system from the command prompt:
+    ```
     `docker run -it match-ranker`
+    ```
     which will prompt for manual input. 
 
     To execute it from the command prompt and pass your local results file to process:
+    ```
     `docker run -v "$(pwd)/results.txt:/app/results.txt" match-ranker /app/results.txt`
+    ```
+    
     assuming your results file is named results.txt and in the current working directory. 
     This will pass the file for processing within the container. 
 
