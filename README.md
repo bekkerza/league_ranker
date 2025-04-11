@@ -1,5 +1,6 @@
 # Simple League Ranking Application
 
+The application can be used in a Docker container or locally calling the python script.
 This Python script processes the results of a league's matches and displays the team rankings based on a simple point system.
 
 ## Features
@@ -47,6 +48,19 @@ This Python script processes the results of a league's matches and displays the 
     ```
     Teams with the same number of points will have the same rank and will be listed alphabetically.
 
+4. **Run in Docker** 
+    To build the image locally, run:
+    `docker build -t match-ranker .` 
+
+    To execute the ranking system from the command prompt:
+    `docker run -it match-ranker`
+    which will prompt for manual input. 
+
+    To execute it from the command prompt and pass your local results file to process:
+    `docker run -v "$(pwd)/results.txt:/app/results.txt" match-ranker /app/results.txt`
+    assuming your results file is named results.txt and in the current working directory. 
+    This will pass the file for processing within the container. 
+
 ## Input Format
 
 The match results should be provided as a string where each match is represented by two teams and their scores, separated by a space. Multiple matches should be separated by commas.
@@ -62,6 +76,11 @@ The script includes basic error handling for the following scenarios:
 * **Team playing against itself:** If a match result shows the same team playing against itself, an error message will be printed, and the script will exit.
 * **File not found:** If a file path is provided as an argument, but the file does not exist, an error message will be printed, and the script will exit.
 * **Error reading file:** If there is an error while trying to read the specified file, an error message will be printed, and the script will exit.
+
+## Unit tests
+
+Run the unit_tests* from your current working directory:
+`python -m unittest .\unit_test.py`
 
 ## Dependencies
 

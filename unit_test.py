@@ -6,13 +6,32 @@ from collections import defaultdict
 import re
 import os
 
-from fleague.league_ranker import process_results, rank_teams, read_input_file
+from league_ranker import process_results, rank_teams, read_input_file
+
+# Optional input file support via CLI
+import argparse
+
+test_input_data = None
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--input', help='Optional path to test input file')
+    args, remaining_args = parser.parse_known_args()
+
+    if args.input:
+        try:
+            with open(args.input, 'r', encoding='utf-8') as f:
+                test_input_data = f.read()
+        except Exception as e:
+            print(f"Error reading test input file '{args.input}': {e}")
+            sys.exit(1)
+
+    unittest.main(argv=[sys.argv[0]] + remaining_args)
 
 # Some tests seem excessive, but better to expect any eventuality than just the common issues.
 class TestResultProcessing(unittest.TestCase):
 
     def test_process_results_valid_input(self):
-        results = "TeamA 3 TeamB 1, TeamC 2 TeamD 2"
+        results = test_input_data or "TeamA 3 TeamB 1, TeamC 2 TeamD 2"
         expected_points = defaultdict(int)
         expected_points['TeamA'] = 3
         expected_points['TeamB'] = 0
@@ -132,4 +151,4 @@ class TestReadInputFile(unittest.TestCase):
         isfile_mock.assert_called_once_with("protected_file.txt")
 
 if __name__ == '__main__':
-    unittest.main(argv=['first-arg-is-ignored'], exit=False)
+    unittest.main()
